@@ -1,0 +1,8 @@
+DATASET:
+  NAME: "PlantWild"
+  NUM_SHOTS: -1
+
+INPUT:
+  SIZE: [224, 224]
+  INTERPOLATION: "bicubic"
+  TRANSFORMS: ["random_resized_crop", "random_flip", "normalize"]

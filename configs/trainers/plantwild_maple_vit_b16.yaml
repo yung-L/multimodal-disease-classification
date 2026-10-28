@@ -1,0 +1,35 @@
+DATALOADER:
+  NUM_WORKERS: 8
+  TRAIN_X:
+    BATCH_SIZE: 4
+  TEST:
+    BATCH_SIZE: 64
+
+MODEL:
+  BACKBONE:
+    NAME: "ViT-B/16"
+
+TRAINER:
+  MAPLE:
+    N_CTX: 2
+    CTX_INIT: "a photo of a"
+    PREC: "fp16"
+    PROMPT_DEPTH: 9
+
+OPTIM:
+  NAME: "sgd"
+  LR: 0.0035
+  MAX_EPOCH: 5
+  LR_SCHEDULER: "cosine"
+  WARMUP_EPOCH: 1
+  WARMUP_TYPE: "constant"
+  WARMUP_CONS_LR: 0.00001
+
+TRAIN:
+  PRINT_FREQ: 20
+  CHECKPOINT_FREQ: 0
+
+TEST:
+  EVALUATOR: "PlantWildClassification"
+  FINAL_MODEL: "best_val"
+  NO_TEST: false
